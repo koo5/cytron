@@ -1,0 +1,70 @@
+the computer room is a room.
+the computer is here.
+the computer is a container.
+the computer contains a hard disc.
+in the computer is a container called RAM
+%making rules
+instead of taking the hard disc, say: say "your watch blinks, '[time of day]'".
+before taking the hard disc:
+ if the player is wearing a watch:
+  now the computer is short circuited;
+  say "zap!".
+ section Real stuff
+[showme]
+include extension by author.
+use MAX_DYNAMIC_DATA of 65535.
+something which is carried by the player
+player carries a floppy disc
+bios is inside the computer.
+inside the bios is a thing called bios time
+the ... is a region
+
+
+a folder is a kind of room.
+the root folder is a folder.
+file is a kind of thing.
+index php is here.
+index is a file.
+to generate index php:
+[nebo]
+
+the stack is a supporter
+
+to decide on the part before the first (x - character):
+ get pos
+ cut to pos
+ create new folder on stack with name 
+
+
+
+carry out serving request:
+ now the dir is the part b4 the first '/'
+ if dir is empty
+
+options:
+for every thing here:
+show checkbox
+
+
+to decide on current time:
+ ask "time.time()"
+
+
+a countdown is a kind of thing.
+to show a countdown:
+let remaining time be target time - current time
+
+
+lock screen is a place
+a day countdown is here
+
+
+
+table of options
+...
+
+wheb play begins:
+ say crunchbang
+ say coding
+ imports
+ read the file of code into lined
