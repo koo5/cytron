@@ -57,6 +57,7 @@ commands:
 """
 
 python_env = dict()
+variables = dict()
 
 import yaml
 
@@ -68,6 +69,16 @@ def run_list(statements):
 	for statement in statements:
 		run(statement)
 
+
+def evaluate_condition(condition):
+	if condition['type'] = 'flag':
+		if condition['namespace'] in variables:
+			if condition['name'] in variables['namespace']
+				return variables['namespace']['name']
+			else
+				return False
+		else
+			return False
 
 def run(statement):
 	print (statement)
@@ -81,6 +92,11 @@ def run(statement):
 		elif command['namespace'] in program['libraries']:
 			if command['command'] in program['libraries'][command['namespace']]['functions']:
 				run_list(program['libraries'][command['namespace']]['functions'][command['command']])
+	
+	if statement['control']:
+		control = statement['control']
+		if control['structure'] = 'if':
+			if evaluate_condition(control['condition'])
 
 
 for statement in program['commands']:
