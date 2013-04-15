@@ -1,0 +1,392 @@
+#
+
+
+#!/usr/bin/python3
+# -*- coding: utf-8 -*-
+
+code = """
+
+---
+modules:
+  builtin:
+		commands:
+			for:
+				aliases: [for, foreach, for each, iterate over, going thru every]
+				#going thru every man in range ...
+				syntax:
+							- for
+							- element
+							- in
+							- elements
+								
+						---
+
+
+				iterate over:
+					- iterate over
+					- elements
+					[foreach,
+				children:
+					- element
+					- elements
+
+			while:
+				alias:
+					- loop
+
+  
+	python:
+		commands:
+			import:
+				children:
+					-
+						name: modules
+				one module	--- or ---  list of modules
+
+
+	pygame:
+		init pygame:
+			code:
+				optionally import pygame
+				'environment["imported modules"]["pygame"].init()'
+
+
+
+
+
+
+
+create pygame window:
+      - command:
+          namespace: builtin
+          command: print
+          argument: "create pygame window"
+      - command:
+          namespace: pygame
+          command: ensure pygame is initialized
+
+      ensure pygame is initialized:
+      - control:
+          structure: if
+          condition:
+            type: flag
+            namespace: pygame
+            name: is pygame initialized?
+          false:
+          - command:
+              namespace: builtin
+              command: print
+              argument: "initializing pygame"
+          - command:
+              namespace: python
+              exec: |
+                import pygame
+                pygame_window = pygame.display.set_mode([400, 300])
+          - set:
+              what:
+                pygame window
+              to:
+                extract:
+                  expression: pygame_window
+              
+
+commands:
+- command:
+    namespace: builtin
+    command: print
+    argument: "hello"
+- command:
+    namespace: builtin
+    command: print
+    argument: "world"
+
+- command:
+    namespace: pygame
+    command: create pygame window
+
+"""
+
+python_env = dict()
+variables = dict()
+
+import yaml
+
+program = yaml.load(program_text)
+
+print (program)
+
+def run_list(statements):
+	for statement in statements:
+		run(statement)
+
+
+def evaluate_condition(condition):
+	if condition['type'] = 'flag':
+		if condition['namespace'] in variables:
+			if condition['name'] in variables['namespace']
+				return variables['namespace']['name']
+			else
+				return False
+		else
+			return False
+
+def run(statement):
+	print (statement)
+	if statement['command']:
+		command = statement['command']
+
+		if command['namespace'] == 'builtin':
+			if command['command'] == 'print':
+				print(command['argument'])
+
+		elif command['namespace'] in program['libraries']:
+			if command['command'] in program['libraries'][command['namespace']]['functions']:
+				run_list(program['libraries'][command['namespace']]['functions'][command['command']])
+	
+	if statement['control']:
+		control = statement['control']
+		if control['structure'] = 'if':
+			if evaluate_condition(control['condition'])
+
+
+for statement in program['commands']:
+	print (statement)
+	run(statement)
+
+
+
+
+
+
+
+#+old school parsing
+
+understand:
+	# bnf: iterate over sequence
+	grammar:
+		-
+			???
+				iterate over
+		-
+			sequence
+
+
+
+#+here it drifts towards braindumping natural language stuff
+
+
+the code is an array of things
+
+#each thing can be:
+
+[
+import:
+	is a statement
+	has a list of modules to import
+
+
+
+
+opening file:
+	syntax:
+		OPEN_FILE string(name) FILE_OPENING_PARAMETERS
+			assign filename
+		OPEN file FILE_OPENING_PARAMETERS
+			
+		
+		FILE_OPENING_PARAMETERS ::= 
+		
+	function:
+		
+
+"init pygame":
+	environment["imported modules"]["pygame"].init()
+
+
+interpreter:
+	set up the environment
+		#what environment?
+			the inner, execution environment, the namespace in which the interpreted program lives
+	pythonian:
+		environment = dict()
+		environment["imported modules"] = dict()
+	repeat for every thing in code:
+		if type is:
+			import:
+				for item in list of modules:
+					#import it into the environment
+					environment["imported modules"][item] = __import__(item)
+			open file:
+				
+
+
+
+python autocompletion/menu
+
+*
+
+dir:
+	
+	
+
+<precache all files played in the code>
+dreams
+
+
+paren arriving sound <something new> is "paren-arrived.vaw" <is a file>
+
+
+
+when paren arrives:
+	play paren arriving sound
+	
+	
+#old i7 notes	
+the computer room is a room.
+the computer is here.
+the computer is a container.
+the computer contains a hard disc.
+in the computer is a container called RAM
+%making rules
+instead of taking the hard disc, say: say "your watch blinks, '[time of day]'".
+before taking the hard disc:
+ if the player is wearing a watch:
+  now the computer is short circuited;
+  say "zap!".
+ section Real stuff
+[showme]
+include extension by author.
+use MAX_DYNAMIC_DATA of 65535.
+something which is carried by the player
+player carries a floppy disc
+bios is inside the computer.
+inside the bios is a thing called bios time
+the ... is a region
+
+
+a folder is a kind of room.
+the root folder is a folder.
+file is a kind of thing.
+index php is here.
+index is a file.
+to generate index php:
+[nebo]
+
+the stack is a supporter
+
+to decide on the part before the first (x - character):
+ get pos
+ cut to pos
+ create new folder on stack with name 
+
+
+
+carry out serving request:
+ now the dir is the part b4 the first '/'
+ if dir is empty
+
+options:
+for every thing here:
+show checkbox
+
+
+to decide on current time:
+ ask "time.time()"
+
+
+a countdown is a kind of thing.
+to show a countdown:
+let remaining time be target time - current time
+
+
+lock screen is a place
+a day countdown is here
+
+
+
+table of options
+...
+
+wheb play begins:
+ say crunchbang
+ say coding
+ imports
+ read the file of code into lined
+	
+	
+	
+
+
+
+
+
+
+
+
+#some declarative gui crap
+
+c = d([
+    windows:
+    [
+<------>palette:
+<------>[
+<------>    refresh: refresh_palette_window,
+<------>    items: []
+<------>    draw:   draw_palette_window
+<------>]....
+....
+<------>editor:
+<------>[
+<------>    files=d([])
+<------>    draw: draw_editor_window
+<------>....
+    ]<->....
+<------>....
+    palette:d("root":"php file",.
+<------><------><------>["root","php file"]:["name", "contents"],
+<------><------><------>["root","php file","name"],  ".php"],
+<------><------><------>
+<------><------><------>
+
+def keypress(x):
+<------>global c
+<------>a = c["windows"]["active"]
+<------>a.keypress(x)
+
+
+
+
+
+
+#program interpreter environment
+environment = {
+<------>"rules":
+<------>{<----->
+<------><------>"program begins": [],
+<------><------>"program ends": []
+<------>}
+<------>"variables":
+<------>{
+<------><------>"banana color" : "yellow"
+<------>}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+figuring out editor code:
+
+cursor_x = cursor_y = 50
+
+code = [Program()]
+
