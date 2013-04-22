@@ -358,7 +358,7 @@ def keypress(x):
 
 
 
-#program interpreter environment
+#how to do program interpreter environment?
 environment = {
 <------>"rules":
 <------>{<----->
@@ -375,6 +375,167 @@ environment = {
 
 
 
+
+
+
+interspersing of ACE statements and python code:
+
+a block of statements is a kind of thing
+
+#to execute a block of statements, go thru each statement from the first to the last and execute it
+
+$("block of statements").execute =.
+
+{
+
+    for i in self.children do:
+
+       i.execute
+
+}
+
+a loop is a kind of thing.
+
+a loop contains a block of statements and a condition
+
+#to execute a loop,
+
+#    1]keep executing the block of statements until the condition evaluates to false
+
+def loop.execute:
+
+   while condition is true:
+
+       execute block
+
+to execute a loop:
+
+   evaluate condition
+
+   
+
+
+a for loop is a kind of thing
+
+a for loop contains items, item and code block
+
+..
+
+a for loop has aliases: for, foreach, for each, iterate over, going thru every
+
+syntax for alias 1 is:
+
+...
+
+function definition is a kind of thing
+
+has inputs
+
+has result
+
+has body
+
+to display:
+
+ for each input:
+
+    display input name, input type
+
+ display "returns" display output type
+
+ display body
+
+
+
+"prepare font" is a function definition
+
+inputs are: input
+
+input is string
+
+
+how the editor would display the blocks
+
+the colors: cytron, ACE BNF
+
+
+to prepare font:
+
+    input is a string
+
+    output is a string
+
+    tokens is an array of strings (or string[] tokens or declare tokens an array of strings or..)
+
+    tokens = tokenize tokens by "#" #asignment
+
+    empty# string ret;
+
+    if there are no tokens
+
+<------>return ret
+
+    y=first of tokens
+
+    if(y.find('+')==string::npos)
+
+<------>return y;
+
+    else
+
+    {
+
+       tokens.clear();
+
+<------>tokenize(y,tokens);
+
+<------>for(unsigned int i=0;i<tokens.size();i++)
+
+<------>{
+
+<------>    char* endptr=0;
+
+<------>    unsigned int b=strtol(tokens.at(i).c_str(),&endptr,10);
+
+<------>    if(!endptr)
+
+    <-->    {
+
+    <--><------>if(font.size()<b)
+
+    <--><------>    ret.append(font.at(b).s);
+
+<------>    }
+
+<------>    else
+
+<------><------>ret.append(tokens.at(i));
+
+<------>}
+
+<------>return prepare(ret);
+
+    }
+
+}
+
+
+to return first of array:
+
+#yadayada
+
+//split, really
+
+to tokenize string by delimiter:
+
+#yadayada
+
+
+whats this?
+
+    #y=first of tokens*17+14
+
+    #token on position given by <b><A>first of tokens<A>*17+24<b>
 
 
 
